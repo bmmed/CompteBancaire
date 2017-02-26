@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="CompteBancaire" version="4">
+  <OBJECT>
+    <ID name="CompteBancaire" mc="Standard.Project" uid="9b771f00-753d-4d18-8c5a-fed6d6431501"/>
+    <ATTRIBUTES>
+      <ATT name="ProjectContext"></ATT>
+      <ATT name="ProjectDescr"></ATT>
+      <ATT name="Name"><![CDATA[CompteBancaire]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="Model">
+        <COMPID name="comptebancaire" mc="Standard.Package" uid="cf47a83e-74bd-4b6b-9bb7-3193f5985cca"/>
+      </COMP>
+      <COMP relation="DiagramRoot">
+        <COMPID name="CompteBancaire" mc="Infrastructure.DiagramSet" uid="a00dca2a-5dcc-4c65-8a5f-681ec7f16359"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

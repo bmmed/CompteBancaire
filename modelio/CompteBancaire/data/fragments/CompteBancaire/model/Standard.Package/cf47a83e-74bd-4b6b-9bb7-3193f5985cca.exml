@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="comptebancaire" version="4">
+  <OBJECT>
+    <ID name="comptebancaire" mc="Standard.Package" uid="cf47a83e-74bd-4b6b-9bb7-3193f5985cca"/>
+    <PID name="CompteBancaire" mc="Standard.Project" uid="9b771f00-753d-4d18-8c5a-fed6d6431501"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[comptebancaire]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Client" mc="Standard.Class" uid="634dc929-779f-4ec8-93f0-5580a347994d"/>
+        <COMPID name="Compte" mc="Standard.Class" uid="3d022e47-dfad-4939-ad5e-9ff05c116b92"/>
+        <COMPID name="Operation" mc="Standard.Class" uid="35175898-e2ca-4218-80a0-009760073759"/>
+        <COMPID name="CategorieOp" mc="Standard.Class" uid="5afd43b3-bbf0-4b4d-91ef-b7e4b3d6f5c4"/>
+        <COMPID name="Depence" mc="Standard.Class" uid="b9c8834c-ec1e-460f-83cd-e0e72a9f16cf"/>
+        <COMPID name="Revenu" mc="Standard.Class" uid="6d97cbfd-f966-4d4a-844d-bb180aba4371"/>
+        <COMPID name="Cheque" mc="Standard.Class" uid="4c0413be-367f-46da-bd3d-8cbd7934aeb3"/>
+        <COMPID name="Virement" mc="Standard.Class" uid="b2c95cf6-59e2-454e-b263-512e80fa8b64"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="comptebancaire Class diagram" mc="Standard.ClassDiagram" uid="fa2db339-9510-4b8a-bc5f-c4168e6d60aa"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
