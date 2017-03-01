@@ -1,3 +1,5 @@
+import java.sql.Date;
+
 /**
  * Created by BMMed on 28/02/2017.
  */
@@ -7,16 +9,18 @@ public class Operation {
     private int fkCat;
     private String desTiers;
     private double montantOps;
+    private char typeOps;
     private double soldeAvant;
     private double soldeApres;
-    private String dateOps;
+    private Date dateOps;
 
-    public Operation(int idOps, int fkCpt, int fkCat, String desTiers, double montantOps, double soldeAvant, double soldeApres, String dateOps) {
+    public Operation(int idOps, int fkCpt, int fkCat, String desTiers, double montantOps, char typeOps, double soldeAvant, double soldeApres, Date dateOps) {
         this.idOps = idOps;
         this.fkCpt = fkCpt;
         this.fkCat = fkCat;
         this.desTiers = desTiers;
         this.montantOps = montantOps;
+        this.typeOps = typeOps;
         this.soldeAvant = soldeAvant;
         this.soldeApres = soldeApres;
         this.dateOps = dateOps;
@@ -78,11 +82,19 @@ public class Operation {
         this.montantOps = montantOps;
     }
 
-    public String getDateOps() {
+    public Date getDateOps() {
         return dateOps;
     }
 
-    public void setDateOps(String dateOps) {
+    public void setDateOps(Date dateOps) {
         this.dateOps = dateOps;
+    }
+
+    public char getTypeOps() {
+        return typeOps;
+    }
+
+    public void setTypeOps(char typeOps) {
+        this.typeOps = typeOps;
     }
 }
