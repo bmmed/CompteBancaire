@@ -9,7 +9,17 @@ public class Compte {
     private int fkClient;
     private double solde;
     private String desCpt;
+
     private ArrayList<Operation> listeOps;
+    private ArrayList<Echeance> listeEch;
+
+    public ArrayList<Echeance> getListeEch() {
+        return listeEch;
+    }
+
+    public void setListeEch(ArrayList<Echeance> listeEch) {
+        this.listeEch = listeEch;
+    }
 
     public ArrayList<Operation> getListeOps() {
         return listeOps;

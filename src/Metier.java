@@ -83,6 +83,7 @@ public class Metier implements IMetier {
                 i.setSolde(rq.getInt(3));
                 i.setDesCpt(rq.getString(4));
                 i.setListeOps(getOpsCpt(i));
+                i.setListeEch(getEchCpt(i));
                 res.add(i);
             }
 
@@ -123,6 +124,54 @@ public class Metier implements IMetier {
         }
 
 
+
+        return res;
+    }
+
+    @Override
+    public ArrayList<Echeance> getEchCpt(Compte c) {
+
+        ArrayList<Echeance> res = new ArrayList<Echeance>();
+        Echeance i ;
+        Connection cnx = JDBC.getConnection();
+        try {
+            PreparedStatement  stat = cnx.prepareStatement("SELECT * \n" +
+                    "FROM  `echeance` \n" +
+                    "WHERE  `fk_id_cpt_ech` =  ? ");
+
+            stat.setInt(1,c.getIdCpt());
+            ResultSet rq = stat.executeQuery();
+            while (rq.next()){
+                i=new Echeance();
+                i.setIdEch(rq.getInt(1));
+                i.setFk_id_cpt_ech(rq.getInt(2));
+                i.setFk_id_cat_ech(rq.getInt(3));
+                i.setMontant_ech(rq.getDouble(4));
+                i.setPeriode_ech(rq.getInt(5));
+                i.setDes_ech(rq.getString(6));
+                i.setDate_last_ech(rq.getDate(7));
+                res.add(i);
+            }
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+
+
+        return res;
+    }
+
+    @Override
+    public ArrayList<Echeance> getEchClient(Client clt) {
+
+        ArrayList<Echeance> res = new ArrayList<Echeance>();
+
+        for (Compte i :clt.getCptClient())
+        {
+            res.addAll(getEchCpt(i));
+        }
 
         return res;
     }
@@ -176,6 +225,8 @@ public class Metier implements IMetier {
 
         return res;
     }
+
+
 
     @Override
     public double getSoldeTotal( Client c) {

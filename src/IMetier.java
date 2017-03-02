@@ -14,6 +14,9 @@ public interface IMetier {
     public ArrayList<Operation> getOpsCpt(Compte c);
     public ArrayList<Operation> getOpsClient(Client clt);
 
+    public ArrayList<Echeance> getEchCpt(Compte c);
+    public ArrayList<Echeance> getEchClient(Client clt);
+
     public double getSoldeTotal(Client c);
     public double getAllDepence(Client c);
     public double getAllRevenu(Client c);
@@ -25,6 +28,8 @@ public interface IMetier {
     public  void addCat(Categorie c);
     public void saveOps(Operation ops);
     public void upDateCpt(Compte c);
+
+
 
 
 

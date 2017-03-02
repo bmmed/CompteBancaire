@@ -24,9 +24,9 @@ public class App {
 
 		Compte cpt1 =c1.getCptClient().get(0);
 
-		for(Operation i:cpt1.getListeOps()){
+		for(Echeance i:cpt1.getListeEch()){
 
-			System.out.println(i.getIdOps()+" "+i.getDesTiers()+" "+i.getMontantOps()+" "+i.getFkCpt());
+			System.out.println(i.getIdEch()+" "+i.getDes_ech()+" "+i.getMontant_ech()+" "+i.getFk_id_cpt_ech());
 		}
 
 
