@@ -1,5 +1,6 @@
 import java.sql.Connection;
 import java.sql.Date;
+import java.util.ArrayList;
 
 public class App {
 
@@ -9,6 +10,7 @@ public class App {
 
 		m.testClient("client 01","0000");
 		Client c1 = m.cnxClient("client 01","0000");
+/*
 
 		Date d1 =new Date(2005,11,12);
 
@@ -17,8 +19,16 @@ public class App {
 
 		m.saveOps(ops1);
 		m.upDateCpt(cpt1);
+*/
 
-		System.out.println(c1.getCatClient().get(1).getDesCat());
+
+		Compte cpt1 =c1.getCptClient().get(0);
+
+		for(Operation i:cpt1.getListeOps()){
+
+			System.out.println(i.getIdOps()+" "+i.getDesTiers()+" "+i.getMontantOps()+" "+i.getFkCpt());
+		}
+
 
 
 	}

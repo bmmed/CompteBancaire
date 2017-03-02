@@ -1,4 +1,5 @@
 import java.sql.Date;
+import java.util.ArrayList;
 
 /**
  * Created by BMMed on 28/02/2017.
@@ -8,6 +9,15 @@ public class Compte {
     private int fkClient;
     private double solde;
     private String desCpt;
+    private ArrayList<Operation> listeOps;
+
+    public ArrayList<Operation> getListeOps() {
+        return listeOps;
+    }
+
+    public void setListeOps(ArrayList<Operation> listeOps) {
+        this.listeOps = listeOps;
+    }
 
     public Compte(int idCpt, int fkClient, double solde, String desCpt) {
         this.idCpt = idCpt;

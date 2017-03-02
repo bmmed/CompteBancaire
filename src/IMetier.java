@@ -1,3 +1,4 @@
+import java.sql.Date;
 import java.util.ArrayList;
 
 /**
@@ -9,15 +10,17 @@ public interface IMetier {
 
     public ArrayList<Compte> getCpt(Client c);
     public ArrayList<Categorie> getCatClient(Client c);
-    public ArrayList<Operation> getOps();
 
-    public double getSoldeTotal();
-    public double getDepence();
-    public double getRevenu();
+    public ArrayList<Operation> getOpsCpt(Compte c);
+    public ArrayList<Operation> getOpsClient(Client clt);
 
-    public double getSoldeTotal(Compte c);
-    public double getDepence(Compte c);
-    public double getRevenu(Compte c);
+    public double getSoldeTotal(Client c);
+    public double getAllDepence(Client c);
+    public double getAllRevenu(Client c);
+
+    public double getSoldeTotalCpt(Compte c);
+    public double getDepenceCpt(Compte c);
+    public double getRevenuCpt(Compte c);
 
     public  void addCat(Categorie c);
     public void saveOps(Operation ops);

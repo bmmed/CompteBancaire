@@ -1,7 +1,4 @@
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 /**
@@ -85,6 +82,7 @@ public class Metier implements IMetier {
                 i.setFkClient(rq.getInt(2));
                 i.setSolde(rq.getInt(3));
                 i.setDesCpt(rq.getString(4));
+                i.setListeOps(getOpsCpt(i));
                 res.add(i);
             }
 
@@ -130,38 +128,218 @@ public class Metier implements IMetier {
     }
 
     @Override
-    public ArrayList<Operation> getOps() {
-        return null;
+    public ArrayList<Operation> getOpsCpt(Compte c) {
+
+        ArrayList<Operation> res = new ArrayList<Operation>();
+        Operation i ;
+        Connection cnx = JDBC.getConnection();
+        try {
+            PreparedStatement  stat = cnx.prepareStatement("SELECT * \n" +
+                    "FROM  `operation` \n" +
+                    "WHERE  `fk_id_cpt_ops` =  ? ");
+
+            stat.setInt(1,c.getIdCpt());
+            ResultSet rq = stat.executeQuery();
+            while (rq.next()){
+                i=new Operation(0,0,0,"",0,' ',0,0,null);
+                i.setIdOps(rq.getInt(1));
+                i.setFkCpt(rq.getInt(2));
+                i.setFkCat(rq.getInt(3));
+                i.setDesTiers(rq.getString(4));
+                i.setMontantOps(rq.getDouble(5));
+                i.setDateOps(rq.getDate(6));
+                i.setTypeOps(rq.getString(7).charAt(0));
+                i.setSoldeAvant(rq.getInt(8));
+                i.setSoldeApres(rq.getInt(9));
+                res.add(i);
+            }
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+
+
+        return res;
     }
 
     @Override
-    public double getSoldeTotal() {
-        return 0;
+    public ArrayList<Operation> getOpsClient(Client clt) {
+
+        ArrayList<Operation> res = new ArrayList<Operation>();
+
+        for (Compte i :clt.getCptClient())
+        {
+            res.addAll(getOpsCpt(i));
+        }
+
+        return res;
     }
 
     @Override
-    public double getDepence() {
-        return 0;
+    public double getSoldeTotal( Client c) {
+        double res =0;
+        Connection cnx = JDBC.getConnection();
+        try {
+            PreparedStatement  stat = cnx.prepareStatement("SELECT  SUM(solde) \n" +
+                    "FROM  `compte` \n" +
+                    "WHERE  `fk_id_client_cpt` =  ? ");
+
+            stat.setInt(1,c.getIdClient());
+            ResultSet rq = stat.executeQuery();
+            System.out.println(rq.getStatement().toString());
+            while (rq.next()){
+                res=(rq.getDouble(1));
+            }
+
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return res;
     }
 
     @Override
-    public double getRevenu() {
-        return 0;
+    public double getAllDepence(Client c) {
+        double res =0;
+        Connection cnx = JDBC.getConnection();
+        PreparedStatement  stat;
+        try {
+            for(Compte i:c.getCptClient()){
+
+                stat = cnx.prepareStatement("SELECT  SUM(montant_ops) \n" +
+                        "FROM  `operation` \n" +
+                        "WHERE  `fk_id_cpt_ops` =  ? AND `type_ops` =  'd' ");
+
+                stat.setInt(1,i.getIdCpt());
+                ResultSet rq = stat.executeQuery();
+                System.out.println(rq.getStatement().toString());
+                while (rq.next()){
+                    res+=(rq.getDouble(1));
+                }
+
+            }
+
+
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return res;
     }
 
     @Override
-    public double getSoldeTotal(Compte c) {
-        return 0;
+    public double getAllRevenu(Client c) {
+
+        double res =0;
+        Connection cnx = JDBC.getConnection();
+        PreparedStatement  stat;
+        try {
+            for(Compte i:c.getCptClient()){
+
+                stat = cnx.prepareStatement("SELECT  SUM(montant_ops) \n" +
+                        "FROM  `operation` \n" +
+                        "WHERE  `fk_id_cpt_ops` =  ? AND `type_ops` =  'r' ");
+
+                stat.setInt(1,i.getIdCpt());
+                ResultSet rq = stat.executeQuery();
+                System.out.println(rq.getStatement().toString());
+                while (rq.next()){
+                    res+=(rq.getDouble(1));
+                }
+
+            }
+
+
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return res;
     }
 
     @Override
-    public double getDepence(Compte c) {
-        return 0;
+    public double getSoldeTotalCpt(Compte c) {
+        double res =0;
+        Connection cnx = JDBC.getConnection();
+        try {
+            PreparedStatement  stat = cnx.prepareStatement("SELECT  solde \n" +
+                    "FROM  `compte` \n" +
+                    "WHERE  `id_cpt` =  ? ");
+
+            stat.setInt(1,c.getIdCpt());
+            ResultSet rq = stat.executeQuery();
+            System.out.println(rq.getStatement().toString());
+            while (rq.next()){
+                res=(rq.getDouble(1));
+            }
+
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return res;
     }
 
     @Override
-    public double getRevenu(Compte c) {
-        return 0;
+    public double getDepenceCpt(Compte c) {
+        double res =0;
+        Connection cnx = JDBC.getConnection();
+        PreparedStatement  stat;
+        try {
+
+                stat = cnx.prepareStatement("SELECT  SUM(montant_ops) \n" +
+                        "FROM  `operation` \n" +
+                        "WHERE  `fk_id_cpt_ops` =  ? AND `type_ops` =  'd' ");
+
+                stat.setInt(1,c.getIdCpt());
+                ResultSet rq = stat.executeQuery();
+                System.out.println(rq.getStatement().toString());
+                while (rq.next()){
+                    res+=(rq.getDouble(1));
+                }
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return res;
+    }
+
+    @Override
+    public double getRevenuCpt(Compte c) {
+        double res =0;
+        Connection cnx = JDBC.getConnection();
+        PreparedStatement  stat;
+        try {
+
+            stat = cnx.prepareStatement("SELECT  SUM(montant_ops) \n" +
+                    "FROM  `operation` \n" +
+                    "WHERE  `fk_id_cpt_ops` =  ? AND `type_ops` =  'r' ");
+
+            stat.setInt(1,c.getIdCpt());
+            ResultSet rq = stat.executeQuery();
+            System.out.println(rq.getStatement().toString());
+            while (rq.next()){
+                res+=(rq.getDouble(1));
+            }
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return res;
     }
 
     @Override
