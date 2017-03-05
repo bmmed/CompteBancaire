@@ -1,5 +1,6 @@
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * Created by BMMed on 01/03/2017.
@@ -66,6 +67,76 @@ public class Metier implements IMetier {
     public  void refrechClient(Client c){
         c.setCptClient(getCpt(c));
         c.setCatClient(getCatClient(c));
+    }
+
+    @Override
+    public boolean testEch(Echeance ech) {
+        boolean res=false;
+
+        Calendar calendar = Calendar.getInstance();
+        Date dateSys =new Date(calendar.getTime().getTime());
+
+
+        Date dateLimit ;
+
+            calendar.setTime(ech.getDate_last_ech());
+            calendar.add(Calendar.DATE,ech.getPeriode_ech());
+            dateLimit =new Date(calendar.getTime().getTime());
+
+            if(dateSys.after(dateLimit))
+            {
+                res=true;
+            }
+        return res;
+    }
+
+    @Override
+    public void executeEch(Client c) {
+
+        Calendar calendar = Calendar.getInstance();
+        Date dateSys =new Date(calendar.getTime().getTime());
+
+        for(Compte cpt:c.getCptClient())
+        {
+            for (Echeance ech:cpt.getListeEch())
+            {
+                if(this.testEch(ech))
+                {
+                    this.saveOps(cpt.creatDepence(ech.getFk_id_cat_ech(),ech.getDes_ech()+" de la date  "+dateSys,ech.getMontant_ech(),dateSys));
+                    this.upDateCpt(cpt);
+                    ech.setDate_last_ech(dateSys);
+                    this.upDateEch(ech);
+                }
+            }
+        }
+        this.refrechClient(c);
+    }
+
+    @Override
+    public void upDateEch(Echeance ech) {
+        Connection cnx = JDBC.getConnection();
+        try {
+            PreparedStatement  stat = cnx.prepareStatement("UPDATE `echeance` SET `fk_id_cpt_ech`=?," +
+                    "`fk_id_cat_ech`= ? ,`montant_ech`= ? ," +
+                    "`periode_ech`= ? ,`dess_ech`= ? ,`date_last_ech`= ? WHERE id_ech = ?");
+
+            stat.setInt(1, ech.getFk_id_cpt_ech());
+            stat.setInt(2, ech.getFk_id_cat_ech());
+            stat.setDouble(3, ech.getMontant_ech());
+            stat.setInt(4, ech.getPeriode_ech());
+            stat.setString(5, ech.getDes_ech());
+            stat.setDate(6, ech.getDate_last_ech());
+
+            stat.setInt(7, ech.getIdEch());
+
+            stat.executeUpdate();
+            stat.close();
+
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -201,8 +272,8 @@ public class Metier implements IMetier {
                 i.setMontantOps(rq.getDouble(5));
                 i.setDateOps(rq.getDate(6));
                 i.setTypeOps(rq.getString(7).charAt(0));
-                i.setSoldeAvant(rq.getInt(8));
-                i.setSoldeApres(rq.getInt(9));
+                i.setSoldeAvant(rq.getDouble(8));
+                i.setSoldeApres(rq.getDouble(9));
                 res.add(i);
             }
 

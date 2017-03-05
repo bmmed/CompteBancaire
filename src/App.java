@@ -1,6 +1,8 @@
 import java.sql.Connection;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class App {
 
@@ -10,6 +12,11 @@ public class App {
 
 		m.testClient("client 01","0000");
 		Client c1 = m.cnxClient("client 01","0000");
+		m.executeEch(c1);
+
+
+
+/*
 
 		Compte cpt1 =c1.getCptClient().get(1);
 		Date d1 =new Date(2005,11,12);
@@ -20,8 +27,6 @@ public class App {
 		for(Compte i:c1.getCptClient()){
 			System.out.println(i.getIdCpt()+" "+i.getDesCpt()+" "+i.getSolde());
 		}
-/*
-
 		Date d1 =new Date(2005,11,12);
 
 		Compte cpt1 =c1.getCptClient().get(1);

@@ -9,6 +9,10 @@ public interface IMetier {
     public Client cnxClient(String u ,String mp);
     public  void refrechClient(Client c);
 
+    public boolean testEch(Echeance ech);
+    public void executeEch(Client cl);
+    public void upDateEch(Echeance ech);
+
     public ArrayList<Compte> getCpt(Client c);
     public ArrayList<Categorie> getCatClient(Client c);
 
