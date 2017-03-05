@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public interface IMetier {
     public boolean testClient(String u ,String mp);
     public Client cnxClient(String u ,String mp);
+    public  void refrechClient(Client c);
 
     public ArrayList<Compte> getCpt(Client c);
     public ArrayList<Categorie> getCatClient(Client c);
@@ -25,8 +26,9 @@ public interface IMetier {
     public double getDepenceCpt(Compte c);
     public double getRevenuCpt(Compte c);
 
-    public  void addCat(Categorie c);
+    public  void saveCat(Categorie c);
     public void saveOps(Operation ops);
+    public void saveEch(Echeance ech);
     public void upDateCpt(Compte c);
 
 

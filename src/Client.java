@@ -52,4 +52,9 @@ public class Client {
 	public void setCatClient(ArrayList<Categorie> catClient) {
 		this.catClient = catClient;
 	}
+
+	public Categorie creatCat(String des){
+		Categorie res =new Categorie(0,des,this.getIdClient());
+		return res;
+	}
 }

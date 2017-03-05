@@ -88,4 +88,19 @@ public class Compte {
         return res;
 
     }
+
+    public Echeance creatEch( int fk_cat, double montant , int periode, String desEch, Date lastEch){
+
+        Echeance res=new Echeance();
+        res.setFk_id_cpt_ech(this.getIdCpt());
+        res.setDes_ech(desEch);
+        res.setFk_id_cat_ech(fk_cat);
+        res.setMontant_ech(montant);
+        res.setPeriode_ech(periode);
+        res.setDate_last_ech(lastEch);
+
+        return res;
+
+    }
+
 }

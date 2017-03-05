@@ -43,7 +43,6 @@ public class Metier implements IMetier {
             stat.setString(1,u);
             stat.setString(2,mp);
             ResultSet rq = stat.executeQuery();
-            System.out.println(rq.getStatement().toString());
             while (rq.next()){
                 res.setIdClient(rq.getInt(1));
                 res.setNomClient(rq.getString(2));
@@ -61,6 +60,12 @@ public class Metier implements IMetier {
 
 
         return res;
+    }
+
+    @Override
+    public  void refrechClient(Client c){
+        c.setCptClient(getCpt(c));
+        c.setCatClient(getCatClient(c));
     }
 
     @Override
@@ -158,8 +163,6 @@ public class Metier implements IMetier {
             e.printStackTrace();
         }
 
-
-
         return res;
     }
 
@@ -226,8 +229,6 @@ public class Metier implements IMetier {
         return res;
     }
 
-
-
     @Override
     public double getSoldeTotal( Client c) {
         double res =0;
@@ -239,7 +240,6 @@ public class Metier implements IMetier {
 
             stat.setInt(1,c.getIdClient());
             ResultSet rq = stat.executeQuery();
-            System.out.println(rq.getStatement().toString());
             while (rq.next()){
                 res=(rq.getDouble(1));
             }
@@ -267,7 +267,6 @@ public class Metier implements IMetier {
 
                 stat.setInt(1,i.getIdCpt());
                 ResultSet rq = stat.executeQuery();
-                System.out.println(rq.getStatement().toString());
                 while (rq.next()){
                     res+=(rq.getDouble(1));
                 }
@@ -299,7 +298,6 @@ public class Metier implements IMetier {
 
                 stat.setInt(1,i.getIdCpt());
                 ResultSet rq = stat.executeQuery();
-                System.out.println(rq.getStatement().toString());
                 while (rq.next()){
                     res+=(rq.getDouble(1));
                 }
@@ -327,7 +325,6 @@ public class Metier implements IMetier {
 
             stat.setInt(1,c.getIdCpt());
             ResultSet rq = stat.executeQuery();
-            System.out.println(rq.getStatement().toString());
             while (rq.next()){
                 res=(rq.getDouble(1));
             }
@@ -354,7 +351,6 @@ public class Metier implements IMetier {
 
                 stat.setInt(1,c.getIdCpt());
                 ResultSet rq = stat.executeQuery();
-                System.out.println(rq.getStatement().toString());
                 while (rq.next()){
                     res+=(rq.getDouble(1));
                 }
@@ -380,7 +376,6 @@ public class Metier implements IMetier {
 
             stat.setInt(1,c.getIdCpt());
             ResultSet rq = stat.executeQuery();
-            System.out.println(rq.getStatement().toString());
             while (rq.next()){
                 res+=(rq.getDouble(1));
             }
@@ -394,8 +389,25 @@ public class Metier implements IMetier {
     }
 
     @Override
-    public void addCat(Categorie c) {
+    public void saveCat(Categorie c) {
 
+        Connection cnx = JDBC.getConnection();
+        try {
+            PreparedStatement  stat = cnx.prepareStatement("INSERT INTO `categorie_ops`(`des_cat`, `fk_id_client_cat`) " +
+                    "VALUES (?,?)");
+
+            stat.setString(1, c.getDesCat());
+            stat.setInt(2, c.getFkClient());
+
+            stat.executeUpdate();
+            stat.close();
+
+
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -428,6 +440,36 @@ public class Metier implements IMetier {
         }
 
     }
+
+    @Override
+    public void saveEch(Echeance ech) {
+        Connection cnx = JDBC.getConnection();
+        try {
+            PreparedStatement  stat = cnx.prepareStatement("INSERT INTO `echeance`" +
+                            "(`fk_id_cpt_ech`, `fk_id_cat_ech`, `montant_ech`, `periode_ech`, `dess_ech`, `date_last_ech`) " +
+                    "VALUES (?,?,?,?,?,?)");
+
+            stat.setInt(1, ech.getFk_id_cpt_ech());
+            stat.setInt(2, ech.getFk_id_cat_ech());
+            stat.setDouble(3, ech.getMontant_ech());
+            stat.setInt(4, ech.getPeriode_ech());
+            stat.setString(5, ech.getDes_ech());
+            stat.setDate(6, ech.getDate_last_ech());
+
+
+
+            stat.executeUpdate();
+            stat.close();
+
+
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+    }
+
 
     @Override
     public void upDateCpt(Compte c) {

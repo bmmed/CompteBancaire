@@ -10,6 +10,16 @@ public class App {
 
 		m.testClient("client 01","0000");
 		Client c1 = m.cnxClient("client 01","0000");
+
+		Compte cpt1 =c1.getCptClient().get(1);
+		Date d1 =new Date(2005,11,12);
+		Echeance ech01 =cpt1.creatEch(4,154.4,30,"ma designation de mone chance",d1);
+		m.saveEch(ech01);
+		m.refrechClient(c1);
+
+		for(Compte i:c1.getCptClient()){
+			System.out.println(i.getIdCpt()+" "+i.getDesCpt()+" "+i.getSolde());
+		}
 /*
 
 		Date d1 =new Date(2005,11,12);
@@ -19,15 +29,22 @@ public class App {
 
 		m.saveOps(ops1);
 		m.upDateCpt(cpt1);
-*/
-
-
 		Compte cpt1 =c1.getCptClient().get(0);
 
 		for(Echeance i:cpt1.getListeEch()){
 
 			System.out.println(i.getIdEch()+" "+i.getDes_ech()+" "+i.getMontant_ech()+" "+i.getFk_id_cpt_ech());
 		}
+
+		Categorie cat1 ;
+		cat1 = c1.creatCat("ma nouvelmle categorie ");
+		m.saveCat(cat1);
+		m.refrechClient(c1);
+
+*/
+
+
+
 
 
 
