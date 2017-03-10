@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6a16c0b-7633-4696-a559-11f7d5663773" name="Default" comment="creation class 01">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Vue/cnx01.form" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Vue/cnx01.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/soldeNegatifExeption.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modelio/CompteBancaire/.runtime/projectInfo.html" afterPath="$PROJECT_DIR$/modelio/CompteBancaire/.runtime/projectInfo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modelio/CompteBancaire/data/.config/auditconfiguration.properties" afterPath="$PROJECT_DIR$/modelio/CompteBancaire/data/.config/auditconfiguration.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.java" afterPath="$PROJECT_DIR$/src/App.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Client.java" afterPath="$PROJECT_DIR$/src/Client.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Compte.java" afterPath="$PROJECT_DIR$/src/Compte.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/IMetier.java" afterPath="$PROJECT_DIR$/src/IMetier.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Metier.java" afterPath="$PROJECT_DIR$/src/Metier.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Operation.java" afterPath="$PROJECT_DIR$/src/Operation.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,12 +23,25 @@
       <file leaf-file-name="Compte.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Compte.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+            <state relative-caret-position="171">
+              <caret line="115" column="47" lean-forward="false" selection-start-line="115" selection-start-column="47" selection-end-line="115" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#Compte#0;class#Compte#0" expanded="false" />
                 <element signature="method#creatEch#0;class#Compte#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Client.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Client.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="185">
+              <caret line="63" column="14" lean-forward="false" selection-start-line="63" selection-start-column="14" selection-end-line="63" selection-end-column="14" />
+              <folding>
+                <element signature="method#Client#0;class#Client#0" expanded="false" />
+                <element signature="method#creatCat#0;class#Client#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -115,7 +120,7 @@
         <entry file="file://$PROJECT_DIR$/src/Metier.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="343">
-              <caret line="357" column="69" lean-forward="true" selection-start-line="357" selection-start-column="69" selection-end-line="357" selection-end-column="69" />
+              <caret line="357" column="69" lean-forward="false" selection-start-line="357" selection-start-column="69" selection-end-line="357" selection-end-column="69" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#testClient#0;class#Metier#0" expanded="false" />
@@ -143,8 +148,8 @@
       <file leaf-file-name="App.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="21" column="79" lean-forward="false" selection-start-line="21" selection-start-column="79" selection-end-line="21" selection-end-column="79" />
+            <state relative-caret-position="222">
+              <caret line="24" column="12" lean-forward="false" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -188,13 +193,13 @@
         <option value="$PROJECT_DIR$/src/JDBC.java" />
         <option value="$PROJECT_DIR$/src/Vue/hello.form" />
         <option value="$PROJECT_DIR$/src/echeance.java" />
-        <option value="$PROJECT_DIR$/src/Client.java" />
         <option value="$PROJECT_DIR$/src/soldeNegatifExeption.java" />
         <option value="$PROJECT_DIR$/src/Vue/cnx01.form" />
-        <option value="$PROJECT_DIR$/src/Compte.java" />
         <option value="$PROJECT_DIR$/src/Operation.java" />
         <option value="$PROJECT_DIR$/src/IMetier.java" />
         <option value="$PROJECT_DIR$/src/Metier.java" />
+        <option value="$PROJECT_DIR$/src/Compte.java" />
+        <option value="$PROJECT_DIR$/src/Client.java" />
         <option value="$PROJECT_DIR$/src/App.java" />
       </list>
     </option>
@@ -528,7 +533,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -625,12 +630,6 @@
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Client.java</url>
-          <line>14</line>
-          <properties />
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Metier.java</url>
           <line>35</line>
           <properties />
@@ -699,8 +698,6 @@
           <caret line="47" column="48" lean-forward="false" selection-start-line="47" selection-start-column="48" selection-end-line="47" selection-end-column="48" />
           <folding>
             <element signature="method#Client#0;class#Client#0" expanded="false" />
-            <element signature="e#997#998#0" expanded="false" />
-            <element signature="e#1020#1021#0" expanded="false" />
             <element signature="method#creatCat#0;class#Client#0" expanded="false" />
           </folding>
         </state>
@@ -756,7 +753,7 @@
         <state relative-caret-position="238">
           <caret line="14" column="27" lean-forward="false" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
           <folding>
-            <element signature="e#361#362#0" expanded="true" />
+            <element signature="e#361#362#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -833,8 +830,6 @@
           <caret line="47" column="48" lean-forward="false" selection-start-line="47" selection-start-column="48" selection-end-line="47" selection-end-column="48" />
           <folding>
             <element signature="method#Client#0;class#Client#0" expanded="false" />
-            <element signature="e#997#998#0" expanded="false" />
-            <element signature="e#1020#1021#0" expanded="false" />
             <element signature="method#creatCat#0;class#Client#0" expanded="false" />
           </folding>
         </state>
@@ -917,7 +912,7 @@
         <state relative-caret-position="238">
           <caret line="14" column="27" lean-forward="false" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
           <folding>
-            <element signature="e#361#362#0" expanded="true" />
+            <element signature="e#361#362#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -960,8 +955,6 @@
           <caret line="47" column="48" lean-forward="false" selection-start-line="47" selection-start-column="48" selection-end-line="47" selection-end-column="48" />
           <folding>
             <element signature="method#Client#0;class#Client#0" expanded="false" />
-            <element signature="e#997#998#0" expanded="false" />
-            <element signature="e#1020#1021#0" expanded="false" />
             <element signature="method#creatCat#0;class#Client#0" expanded="false" />
           </folding>
         </state>
@@ -1044,7 +1037,7 @@
         <state relative-caret-position="238">
           <caret line="14" column="27" lean-forward="false" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
           <folding>
-            <element signature="e#361#362#0" expanded="true" />
+            <element signature="e#361#362#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1120,8 +1113,6 @@
           <caret line="1" column="20" lean-forward="false" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
           <folding>
             <element signature="method#Client#0;class#Client#0" expanded="false" />
-            <element signature="e#997#998#0" expanded="false" />
-            <element signature="e#1020#1021#0" expanded="false" />
             <element signature="method#creatCat#0;class#Client#0" expanded="false" />
           </folding>
         </state>
@@ -1188,8 +1179,6 @@
           <caret line="1" column="20" lean-forward="false" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
           <folding>
             <element signature="method#Client#0;class#Client#0" expanded="false" />
-            <element signature="e#997#998#0" expanded="false" />
-            <element signature="e#1020#1021#0" expanded="false" />
             <element signature="method#creatCat#0;class#Client#0" expanded="false" />
           </folding>
         </state>
@@ -1257,8 +1246,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="method#Client#0;class#Client#0" expanded="false" />
-            <element signature="e#997#998#0" expanded="false" />
-            <element signature="e#1020#1021#0" expanded="false" />
             <element signature="method#creatCat#0;class#Client#0" expanded="false" />
           </folding>
         </state>
@@ -1289,19 +1276,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Vue/hello.form" />
     <entry file="file://$PROJECT_DIR$/src/Vue/hello.java" />
-    <entry file="file://$PROJECT_DIR$/src/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="55" column="41" lean-forward="false" selection-start-line="55" selection-start-column="41" selection-end-line="55" selection-end-column="41" />
-          <folding>
-            <element signature="method#Client#0;class#Client#0" expanded="false" />
-            <element signature="e#997#998#0" expanded="false" />
-            <element signature="e#1020#1021#0" expanded="false" />
-            <element signature="method#creatCat#0;class#Client#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Echeance.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -1326,7 +1300,7 @@
         <state relative-caret-position="238">
           <caret line="14" column="27" lean-forward="false" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
           <folding>
-            <element signature="e#361#362#0" expanded="true" />
+            <element signature="e#361#362#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1384,22 +1358,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Compte.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Compte#0;class#Compte#0" expanded="false" />
-            <element signature="method#creatEch#0;class#Compte#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Metier.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="343">
-          <caret line="357" column="69" lean-forward="true" selection-start-line="357" selection-start-column="69" selection-end-line="357" selection-end-column="69" />
+          <caret line="357" column="69" lean-forward="false" selection-start-line="357" selection-start-column="69" selection-end-line="357" selection-end-column="69" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#testClient#0;class#Metier#0" expanded="false" />
@@ -1433,10 +1395,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Compte.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="115" column="47" lean-forward="false" selection-start-line="115" selection-start-column="47" selection-end-line="115" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Compte#0;class#Compte#0" expanded="false" />
+            <element signature="method#creatEch#0;class#Compte#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="63" column="14" lean-forward="false" selection-start-line="63" selection-start-column="14" selection-end-line="63" selection-end-column="14" />
+          <folding>
+            <element signature="method#Client#0;class#Client#0" expanded="false" />
+            <element signature="method#creatCat#0;class#Client#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="21" column="79" lean-forward="false" selection-start-line="21" selection-start-column="79" selection-end-line="21" selection-end-column="79" />
+        <state relative-caret-position="222">
+          <caret line="24" column="12" lean-forward="false" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

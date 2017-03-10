@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.Date;
 import java.time.LocalDate;
@@ -18,8 +20,16 @@ public class App {
 		Date d1 = new Date(calendar.getTime().getTime());
         calendar.set(3900,01,01);
         Date d2 =new Date(calendar.getTime().getTime());
-        for(Operation i:m.getOpsClient(c1,' ',d1,d2,false)){
-            System.out.println(i.getIdOps()+" "+i.getDateOps()+" "+i.getFkCpt());
+
+            System.out.println(c1.getCvsClient());
+            
+        try {
+            FileWriter writer = new FileWriter("C:\\Users\\BMMed\\Desktop\\test.csv");
+            writer.append(c1.getCvsClient());
+            writer.flush();
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
 

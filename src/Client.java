@@ -57,4 +57,15 @@ public class Client {
 		Categorie res =new Categorie(0,des,this.getIdClient());
 		return res;
 	}
+
+	public String getCvsClient()
+	{
+		String res="\n";
+		res+="identifiant du client: "+this.getIdClient()+"  nom: "+this.getNomClient()+"   prenom: "+this.getPrenomClient()+"\n";
+		for(Compte i:this.getCptClient())
+		{
+			res+=i.getCvsCpt();
+		}
+		return res;
+	}
 }

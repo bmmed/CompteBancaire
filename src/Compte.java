@@ -110,4 +110,17 @@ public class Compte {
 
     }
 
+    public String getCvsCpt(){
+        String res="\n";
+        res+="identifiant du compte :"+this.getIdCpt()+"  designation: "+this.getDesCpt()+" solde: "+this.getSolde()+"\n";
+        res+="      les operations du compte \n";
+
+        for(Operation i:this.getListeOps())
+        {
+            res+="          "+i.getIdOps()+"    "+i.getDateOps()+"    "+i.getDesTiers()+"    "+i.getMontantOps()+"    "+i.getSoldeAvant()+"    "
+                    +i.getSoldeApres()+"    "+i.getFkCat()+"\n";
+        }
+        return res;
+    }
+
 }
