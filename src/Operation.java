@@ -15,15 +15,16 @@ public class Operation {
     private Date dateOps;
 
     public Operation(int idOps, int fkCpt, int fkCat, String desTiers, double montantOps, char typeOps, double soldeAvant, double soldeApres, Date dateOps) {
-        this.idOps = idOps;
-        this.fkCpt = fkCpt;
-        this.fkCat = fkCat;
-        this.desTiers = desTiers;
-        this.montantOps = montantOps;
-        this.typeOps = typeOps;
-        this.soldeAvant = soldeAvant;
-        this.soldeApres = soldeApres;
-        this.dateOps = dateOps;
+
+            this.idOps = idOps;
+            this.fkCpt = fkCpt;
+            this.fkCat = fkCat;
+            this.desTiers = desTiers;
+            this.montantOps = montantOps;
+            this.typeOps = typeOps;
+            this.soldeAvant = soldeAvant;
+            this.soldeApres = soldeApres;
+            this.dateOps = dateOps;
     }
 
     public double getSoldeAvant() {

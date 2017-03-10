@@ -264,17 +264,19 @@ public class Metier implements IMetier {
             stat.setInt(1,c.getIdCpt());
             ResultSet rq = stat.executeQuery();
             while (rq.next()){
-                i=new Operation(0,0,0,"",0,' ',0,0,null);
-                i.setIdOps(rq.getInt(1));
-                i.setFkCpt(rq.getInt(2));
-                i.setFkCat(rq.getInt(3));
-                i.setDesTiers(rq.getString(4));
-                i.setMontantOps(rq.getDouble(5));
-                i.setDateOps(rq.getDate(6));
-                i.setTypeOps(rq.getString(7).charAt(0));
-                i.setSoldeAvant(rq.getDouble(8));
-                i.setSoldeApres(rq.getDouble(9));
-                res.add(i);
+
+                    i=new Operation(0,0,0,"",0,' ',0,0,null);
+                    i.setIdOps(rq.getInt(1));
+                    i.setFkCpt(rq.getInt(2));
+                    i.setFkCat(rq.getInt(3));
+                    i.setDesTiers(rq.getString(4));
+                    i.setMontantOps(rq.getDouble(5));
+                    i.setDateOps(rq.getDate(6));
+                    i.setTypeOps(rq.getString(7).charAt(0));
+                    i.setSoldeAvant(rq.getDouble(8));
+                    i.setSoldeApres(rq.getDouble(9));
+                    res.add(i);
+
             }
 
         } catch (SQLException e) {
@@ -298,6 +300,65 @@ public class Metier implements IMetier {
         }
 
         return res;
+    }
+
+    @Override
+    public ArrayList<Operation> getOpsClient(Compte c, char type, Date d1, Date d2, boolean testAffectOps) {
+
+
+        ArrayList<Operation> res = new ArrayList<Operation>();
+        Operation i ;
+        Connection cnx = JDBC.getConnection();
+
+        String sql="SELECT * \n" + "FROM  `operation` WHERE  `fk_id_cpt_ops` =  ? ";
+
+        if(type!=' ') sql+=" AND `type_ops` = \'"+type+"\'";
+        if(d1!=null || d2 != d2) sql+= " AND  (`date_ops` BETWEEN \'"+d1+"\' AND \'"+d2+"\' )";
+        if(testAffectOps) sql+= " AND `fk_id_cat_ops` = 0 ";
+
+        System.out.println(sql);
+
+        try {
+            PreparedStatement  stat = cnx.prepareStatement(sql);
+
+            stat.setInt(1,c.getIdCpt());
+            ResultSet rq = stat.executeQuery();
+            while (rq.next()){
+
+                i=new Operation(0,0,0,"",0,' ',0,0,null);
+                i.setIdOps(rq.getInt(1));
+                i.setFkCpt(rq.getInt(2));
+                i.setFkCat(rq.getInt(3));
+                i.setDesTiers(rq.getString(4));
+                i.setMontantOps(rq.getDouble(5));
+                i.setDateOps(rq.getDate(6));
+                i.setTypeOps(rq.getString(7).charAt(0));
+                i.setSoldeAvant(rq.getDouble(8));
+                i.setSoldeApres(rq.getDouble(9));
+                res.add(i);
+
+            }
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+
+
+        return res;
+    }
+
+    @Override
+    public ArrayList<Operation> getOpsClient(Client client, char type, Date d1, Date d2, boolean testAffectOps) {
+       ArrayList<Operation> res = new ArrayList<Operation>();
+
+       for (Compte i:client.getCptClient())
+       {
+           res.addAll(this.getOpsClient(i,type,d1,d2,testAffectOps));
+       }
+
+       return res;
     }
 
     @Override
@@ -526,8 +587,6 @@ public class Metier implements IMetier {
             stat.setInt(4, ech.getPeriode_ech());
             stat.setString(5, ech.getDes_ech());
             stat.setDate(6, ech.getDate_last_ech());
-
-
 
             stat.executeUpdate();
             stat.close();

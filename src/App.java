@@ -13,7 +13,14 @@ public class App {
 		m.testClient("client 01","0000");
 		Client c1 = m.cnxClient("client 01","0000");
 		m.executeEch(c1);
-
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2016,01,01);
+		Date d1 = new Date(calendar.getTime().getTime());
+        calendar.set(3900,01,01);
+        Date d2 =new Date(calendar.getTime().getTime());
+        for(Operation i:m.getOpsClient(c1,' ',d1,d2,false)){
+            System.out.println(i.getIdOps()+" "+i.getDateOps()+" "+i.getFkCpt());
+        }
 
 
 /*

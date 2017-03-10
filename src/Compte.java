@@ -70,8 +70,11 @@ public class Compte {
 
     public  synchronized Operation creatRevenu(int idCat, String desTiers, double montant , Date dateops){
 
-        Operation res=new Operation(0,this.idCpt, idCat,desTiers,montant,'r',
-                    this.getSolde(),this.getSolde()+montant,dateops);
+        Operation res= null;
+
+            res = new Operation(0,this.idCpt, idCat,desTiers,montant,'r',
+                        this.getSolde(),this.getSolde()+montant,dateops);
+
 
         this.solde+=montant;
 
@@ -81,9 +84,13 @@ public class Compte {
 
     public Operation creatDepence(int idCat, String desTiers, double montant , Date dateops){
 
-        Operation res=new Operation(0,this.idCpt, idCat,desTiers,montant,'d',
-                this.getSolde(),this.getSolde()-montant,dateops);
-        this.solde-=montant;
+
+        Operation res=null;
+
+            res=new Operation(0,this.idCpt, idCat,desTiers,montant,'d',
+                    this.getSolde(),this.getSolde()-montant,dateops);
+            this.solde-=montant;
+
 
         return res;
 
