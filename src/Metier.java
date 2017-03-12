@@ -1,3 +1,14 @@
+
+
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -33,7 +44,7 @@ public class Metier implements IMetier {
 
     @Override
     public Client cnxClient(String u, String mp) {
-        Client res =new Client(0,"","");
+        Client res =new Client(0," "," ");
         Connection cnx = JDBC.getConnection();
         try {
             PreparedStatement  stat = cnx.prepareStatement("SELECT * \n" +
@@ -620,5 +631,32 @@ public class Metier implements IMetier {
             e.printStackTrace();
         }
 
+    }
+    @Override
+    public void creatCsvFile(String txt, String fileDir) {
+
+        try {
+            FileWriter writer = new FileWriter(fileDir);
+            writer.append(txt);
+            writer.flush();
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void creatPdfFile(String txt, String fileDir) {
+        Document document = new Document();
+        try {
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(fileDir));
+            document.open();
+            document.add(new Paragraph(txt));
+            document.close();
+            writer.close();
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

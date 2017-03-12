@@ -10,8 +10,8 @@ public class Compte {
     private double solde;
     private String desCpt;
 
-    private ArrayList<Operation> listeOps;
-    private ArrayList<Echeance> listeEch;
+    private ArrayList<Operation> listeOps=null;
+    private ArrayList<Echeance> listeEch=null;
 
     public ArrayList<Echeance> getListeEch() {
         return listeEch;
@@ -112,13 +112,19 @@ public class Compte {
 
     public String getCvsCpt(){
         String res="\n";
-        res+="identifiant du compte :"+this.getIdCpt()+"  designation: "+this.getDesCpt()+" solde: "+this.getSolde()+"\n";
-        res+="      les operations du compte \n";
+        res+="  Identifiant du compte: "+this.getIdCpt()+"  Désignation: "+this.getDesCpt()+" solde: "+this.getSolde()+" EUROS\n";
 
+        res+="\n    -Les echeances du compte: \n";
+        for(Echeance i:this.getListeEch())
+        {
+            res+="        "+i.getIdEch()+" , "+i.getDes_ech()+" , "+i.getMontant_ech()+" , "+i.getPeriode_ech()+" , "+i.getDate_last_ech()+"\n";
+        }
+
+        res+="\n    -Les operations du compte: \n";
         for(Operation i:this.getListeOps())
         {
-            res+="          "+i.getIdOps()+"    "+i.getDateOps()+"    "+i.getDesTiers()+"    "+i.getMontantOps()+"    "+i.getSoldeAvant()+"    "
-                    +i.getSoldeApres()+"    "+i.getFkCat()+"\n";
+            res+="        "+i.getIdOps()+" , "+i.getDateOps()+" , "+i.getDesTiers()+" , "+i.getMontantOps()+" , "+i.getSoldeAvant()+" , "
+                    +i.getSoldeApres()+" , "+i.getFkCat()+"\n";
         }
         return res;
     }

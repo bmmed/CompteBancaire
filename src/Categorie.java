@@ -35,5 +35,7 @@ public class Categorie {
     public void setFkClient(int fkClient) {
         this.fkClient = fkClient;
     }
+
+
 }
 

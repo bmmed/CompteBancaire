@@ -38,8 +38,8 @@ public interface IMetier {
     public void saveEch(Echeance ech);
     public void upDateCpt(Compte c);
 
-
-
+    public void creatCsvFile(String txt ,String fileDir);
+    public void creatPdfFile(String txt ,String fileDir);
 
 
 

@@ -14,23 +14,15 @@ public class App {
 
 		m.testClient("client 01","0000");
 		Client c1 = m.cnxClient("client 01","0000");
-		m.executeEch(c1);
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(2016,01,01);
-		Date d1 = new Date(calendar.getTime().getTime());
-        calendar.set(3900,01,01);
-        Date d2 =new Date(calendar.getTime().getTime());
+		/*m.executeEch(c1);*/
+
+		Date d1 =MaDate.getMaDate(2016,05,15);
+        Date d2 =MaDate.getMaDate(4000,05,15);
 
             System.out.println(c1.getCvsClient());
-            
-        try {
-            FileWriter writer = new FileWriter("C:\\Users\\BMMed\\Desktop\\test.csv");
-            writer.append(c1.getCvsClient());
-            writer.flush();
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+            m.creatCsvFile(c1.getCvsClient(),"C:\\Users\\BMMed\\Desktop\\test.csv");
+			m.creatPdfFile(c1.getCvsClient(),"C:\\Users\\BMMed\\Desktop\\test1.pdf");
 
 
 /*

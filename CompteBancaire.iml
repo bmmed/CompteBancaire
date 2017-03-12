@@ -39,5 +39,9 @@
     </orderEntry>
     <orderEntry type="library" name="CompteBancaire" level="project" />
     <orderEntry type="library" name="CompteBancaire (2)" level="project" />
+    <orderEntry type="library" name="bcmail-jdk14-1.38" level="project" />
+    <orderEntry type="library" name="bcprov-jdk14-1.38" level="project" />
+    <orderEntry type="library" name="bctsp-jdk14-1.38" level="project" />
+    <orderEntry type="library" name="itextpdf-5.0.6" level="project" />
   </component>
 </module>

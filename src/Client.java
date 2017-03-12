@@ -8,10 +8,10 @@ public class Client {
 	private ArrayList<Categorie> catClient;
 
 
-	public Client(int idClient, String nomClient, String prenomClient) {
-		this.idClient = idClient;
-		this.nomClient = nomClient;
-		this.prenomClient = prenomClient;
+	public Client(int id, String nom, String prenom) {
+		this.idClient = id;
+		this.nomClient = nom;
+		this.prenomClient = prenom;
 	}
 
 	public int getIdClient() {
@@ -58,10 +58,18 @@ public class Client {
 		return res;
 	}
 
-	public String getCvsClient()
-	{
+	public String getCvsClient() {
+
 		String res="\n";
-		res+="identifiant du client: "+this.getIdClient()+"  nom: "+this.getNomClient()+"   prenom: "+this.getPrenomClient()+"\n";
+		res+="\n Identifiant client: "+this.getIdClient()+"\n Nom: "+this.getNomClient()+"\n Prenom: "+this.getPrenomClient()+"\n Date: "+MaDate.getSysDate()+"\n \n";
+
+		res+=" I-Les Categories D'operations favoris du client: \n";
+		for(Categorie i:this.getCatClient())
+		{
+			res+="    "+i.getIdCat()+" , "+i.getDesCat()+"\n";
+		}
+
+		res+="\n\nII-Les Comptes client:\n";
 		for(Compte i:this.getCptClient())
 		{
 			res+=i.getCvsCpt();
