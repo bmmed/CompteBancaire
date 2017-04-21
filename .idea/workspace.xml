@@ -1,45 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d6a16c0b-7633-4696-a559-11f7d5663773" name="Default" comment="creation class 01">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/view/FntrAddCat.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Vue/Cnx.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Vue/cnx01.form" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Vue/cnx01.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/App.java" afterPath="$PROJECT_DIR$/src/Controller/App.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Categorie.java" afterPath="$PROJECT_DIR$/src/Controller/Categorie.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Client.java" afterPath="$PROJECT_DIR$/src/Controller/Client.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Compte.java" afterPath="$PROJECT_DIR$/src/Controller/Compte.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Echeance.java" afterPath="$PROJECT_DIR$/src/Controller/Echeance.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/IMetier.java" afterPath="$PROJECT_DIR$/src/Controller/IMetier.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/JDBC.java" afterPath="$PROJECT_DIR$/src/Controller/JDBC.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/MaDate.java" afterPath="$PROJECT_DIR$/src/Controller/MaDate.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Metier.java" afterPath="$PROJECT_DIR$/src/Controller/Metier.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Operation.java" afterPath="$PROJECT_DIR$/src/Controller/Operation.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/soldeNegatifExeption.java" afterPath="$PROJECT_DIR$/src/Controller/soldeNegatifExeption.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modelio/CompteBancaire/.runtime/fragments/CompteBancaire/.index/index.dbf.0" afterPath="$PROJECT_DIR$/modelio/CompteBancaire/.runtime/fragments/CompteBancaire/.index/index.dbf.0" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modelio/CompteBancaire/.runtime/fragments/CompteBancaire/.index/index.dbr.0" afterPath="$PROJECT_DIR$/modelio/CompteBancaire/.runtime/fragments/CompteBancaire/.index/index.dbr.0" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modelio/CompteBancaire/.runtime/fragments/CompteBancaire/.index/index.idf.0" afterPath="$PROJECT_DIR$/modelio/CompteBancaire/.runtime/fragments/CompteBancaire/.index/index.idf.0" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modelio/CompteBancaire/.runtime/fragments/CompteBancaire/.index/index.idr.0" afterPath="$PROJECT_DIR$/modelio/CompteBancaire/.runtime/fragments/CompteBancaire/.index/index.idr.0" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modelio/CompteBancaire/data/localmodel/localmodel.dbf.0" afterPath="$PROJECT_DIR$/modelio/CompteBancaire/data/localmodel/localmodel.dbf.0" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modelio/CompteBancaire/data/localmodel/localmodel.dbf.t" afterPath="$PROJECT_DIR$/modelio/CompteBancaire/data/localmodel/localmodel.dbf.t" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modelio/CompteBancaire/data/localmodel/localmodel.dbr.0" afterPath="$PROJECT_DIR$/modelio/CompteBancaire/data/localmodel/localmodel.dbr.0" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modelio/CompteBancaire/data/localmodel/localmodel.dbr.t" afterPath="$PROJECT_DIR$/modelio/CompteBancaire/data/localmodel/localmodel.dbr.t" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modelio/CompteBancaire/data/localmodel/localmodel.idf.0" afterPath="$PROJECT_DIR$/modelio/CompteBancaire/data/localmodel/localmodel.idf.0" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modelio/CompteBancaire/data/localmodel/localmodel.idf.t" afterPath="$PROJECT_DIR$/modelio/CompteBancaire/data/localmodel/localmodel.idf.t" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modelio/CompteBancaire/data/localmodel/localmodel.idr.0" afterPath="$PROJECT_DIR$/modelio/CompteBancaire/data/localmodel/localmodel.idr.0" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modelio/CompteBancaire/data/localmodel/localmodel.idr.t" afterPath="$PROJECT_DIR$/modelio/CompteBancaire/data/localmodel/localmodel.idr.t" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modelio/CompteBancaire/.runtime/projectInfo.html" afterPath="$PROJECT_DIR$/modelio/CompteBancaire/.runtime/projectInfo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modelio/CompteBancaire/data/.config/auditconfiguration.properties" afterPath="$PROJECT_DIR$/modelio/CompteBancaire/data/.config/auditconfiguration.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modelio/CompteBancaire/data/fragments/CompteBancaire/admin/stamp.dat" afterPath="$PROJECT_DIR$/modelio/CompteBancaire/data/fragments/CompteBancaire/admin/stamp.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modelio/CompteBancaire/data/fragments/CompteBancaire/model/Standard.Class/3d022e47-dfad-4939-ad5e-9ff05c116b92.exml" afterPath="$PROJECT_DIR$/modelio/CompteBancaire/data/fragments/CompteBancaire/model/Standard.Class/3d022e47-dfad-4939-ad5e-9ff05c116b92.exml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modelio/CompteBancaire/data/fragments/CompteBancaire/model/Standard.Class/5728bf6a-5424-4c81-8203-bd6a40f80c6e.exml" afterPath="$PROJECT_DIR$/modelio/CompteBancaire/data/fragments/CompteBancaire/model/Standard.Class/5728bf6a-5424-4c81-8203-bd6a40f80c6e.exml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modelio/CompteBancaire/data/fragments/CompteBancaire/model/Standard.Class/5afd43b3-bbf0-4b4d-91ef-b7e4b3d6f5c4.exml" afterPath="$PROJECT_DIR$/modelio/CompteBancaire/data/fragments/CompteBancaire/model/Standard.Class/5afd43b3-bbf0-4b4d-91ef-b7e4b3d6f5c4.exml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modelio/CompteBancaire/data/fragments/CompteBancaire/model/Standard.Class/634dc929-779f-4ec8-93f0-5580a347994d.exml" afterPath="$PROJECT_DIR$/modelio/CompteBancaire/data/fragments/CompteBancaire/model/Standard.Class/634dc929-779f-4ec8-93f0-5580a347994d.exml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modelio/CompteBancaire/data/fragments/CompteBancaire/model/Standard.ClassDiagram/fa2db339-9510-4b8a-bc5f-c4168e6d60aa.exml" afterPath="$PROJECT_DIR$/modelio/CompteBancaire/data/fragments/CompteBancaire/model/Standard.ClassDiagram/fa2db339-9510-4b8a-bc5f-c4168e6d60aa.exml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modelio/CompteBancaire/data/fragments/CompteBancaire/model/Standard.Project/9b771f00-753d-4d18-8c5a-fed6d6431501.exml" afterPath="$PROJECT_DIR$/modelio/CompteBancaire/data/fragments/CompteBancaire/model/Standard.Project/9b771f00-753d-4d18-8c5a-fed6d6431501.exml" />
-    </list>
+    <list default="true" id="d6a16c0b-7633-4696-a559-11f7d5663773" name="Default" comment="creation class 01" />
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -97,7 +59,7 @@
         <entry file="file://$PROJECT_DIR$/src/Controller/Metier.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
-              <caret line="12" column="27" lean-forward="true" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
+              <caret line="12" column="27" lean-forward="false" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
               <folding>
                 <element signature="method#refrechClient#0;class#Metier#0" expanded="false" />
                 <element signature="method#testEch#0;class#Metier#0" expanded="false" />
@@ -664,8 +626,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1209,7 +1171,7 @@
     <entry file="file://$PROJECT_DIR$/src/Controller/Metier.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
-          <caret line="12" column="27" lean-forward="true" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
+          <caret line="12" column="27" lean-forward="false" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
           <folding>
             <element signature="method#refrechClient#0;class#Metier#0" expanded="false" />
             <element signature="method#testEch#0;class#Metier#0" expanded="false" />
