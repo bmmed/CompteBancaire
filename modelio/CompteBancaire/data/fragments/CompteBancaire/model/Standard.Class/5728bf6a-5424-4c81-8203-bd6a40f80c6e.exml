@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="echance" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Echeance" version="4">
   <OBJECT>
-    <ID name="echance" mc="Standard.Class" uid="5728bf6a-5424-4c81-8203-bd6a40f80c6e"/>
+    <ID name="Echeance" mc="Standard.Class" uid="5728bf6a-5424-4c81-8203-bd6a40f80c6e"/>
     <PID name="comptebancaire" mc="Standard.Package" uid="cf47a83e-74bd-4b6b-9bb7-3193f5985cca"/>
     <ATTRIBUTES>
       <ATT name="IsActive">false</ATT>
@@ -11,7 +11,7 @@
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[echance]]></ATT>
+      <ATT name="Name"><![CDATA[Echeance]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>

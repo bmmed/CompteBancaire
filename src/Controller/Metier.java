@@ -1,4 +1,4 @@
-
+package Controller;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -113,7 +113,7 @@ public class Metier implements IMetier {
             {
                 if(this.testEch(ech))
                 {
-                    this.saveOps(cpt.creatDepence(ech.getFk_id_cat_ech(),ech.getDes_ech()+" de la date  "+dateSys,ech.getMontant_ech(),dateSys));
+                    this.saveOps(cpt.creatDepence(ech.getFk_id_cat_ech(),ech.getDes_ech()+" de la date  "+dateSys,ech.getMontant_ech()));
                     this.upDateCpt(cpt);
                     ech.setDate_last_ech(dateSys);
                     this.upDateEch(ech);
@@ -544,8 +544,6 @@ public class Metier implements IMetier {
 
             stat.executeUpdate();
             stat.close();
-
-
 
         } catch (SQLException e) {
             // TODO Auto-generated catch block

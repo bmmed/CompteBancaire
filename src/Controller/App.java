@@ -1,3 +1,5 @@
+package Controller;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.Connection;
@@ -16,8 +18,8 @@ public class App {
 		Client c1 = m.cnxClient("client 01","0000");
 		/*m.executeEch(c1);*/
 
-		Date d1 =MaDate.getMaDate(2016,05,15);
-        Date d2 =MaDate.getMaDate(4000,05,15);
+		Date d1 = MaDate.getMaDate(2016,05,15);
+        Date d2 = MaDate.getMaDate(4000,05,15);
 
             System.out.println(c1.getCvsClient());
 

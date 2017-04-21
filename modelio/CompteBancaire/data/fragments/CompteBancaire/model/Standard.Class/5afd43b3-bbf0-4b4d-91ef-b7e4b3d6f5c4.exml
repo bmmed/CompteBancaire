@@ -161,7 +161,7 @@
             <ATT name="IsOrdered">false</ATT>
             <ATT name="IsUnique">false</ATT>
             <ATT name="MultiplicityMin"><![CDATA[0]]></ATT>
-            <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
+            <ATT name="MultiplicityMax"><![CDATA[*]]></ATT>
             <ATT name="Visibility">Public</ATT>
             <ATT name="IsClass">false</ATT>
             <ATT name="IsAbstract">false</ATT>
@@ -170,7 +170,7 @@
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="echance" mc="Standard.Class" uid="5728bf6a-5424-4c81-8203-bd6a40f80c6e"/>
+              <ID name="Echeance" mc="Standard.Class" uid="5728bf6a-5424-4c81-8203-bd6a40f80c6e"/>
             </LINK>
             <COMP relation="Opposite">
               <OBJECT>

@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="cas utilisation" version="4">
+  <OBJECT>
+    <ID name="cas utilisation" mc="Standard.Package" uid="06bc868a-74b7-4d1e-8b57-b95326dafd95"/>
+    <PID name="CompteBancaire" mc="Standard.Project" uid="9b771f00-753d-4d18-8c5a-fed6d6431501"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[cas utilisation]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Client" mc="Standard.Actor" uid="7d15b393-0b2a-47a4-839f-3b6e39cd80e3"/>
+        <COMPID name="Consultation des Operations" mc="Standard.UseCase" uid="1b36d8ed-af17-429f-8d28-8bdf8dc2f357"/>
+        <COMPID name="Ajout d'une Categorie favori" mc="Standard.UseCase" uid="376de910-7763-45f5-9c9c-9c26e752b808"/>
+        <COMPID name="consultation des echéances en cours" mc="Standard.UseCase" uid="e4f84fcf-e1c5-4263-9f73-f0d1a6004784"/>
+        <COMPID name="Edition de la categorie de l'opération " mc="Standard.UseCase" uid="9504bd62-f2a1-4324-881a-3ec6f9f10d85"/>
+        <COMPID name="Exportation des données CSV/PDF" mc="Standard.UseCase" uid="71b4ca2a-2df9-4000-97d3-19663122491e"/>
+        <COMPID name="Consultatio en Diagrames " mc="Standard.UseCase" uid="d51e0bea-a582-4e0b-92e5-6c7708ceecbf"/>
+        <COMPID name="Authentification" mc="Standard.UseCase" uid="42e0a06b-0b5b-4210-b9fb-cea14d226664"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="cas utilisation Use Case diagram" mc="Standard.UseCaseDiagram" uid="f2316c3a-2236-4397-8564-3a81cc7c43ad"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

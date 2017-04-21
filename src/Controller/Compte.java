@@ -1,3 +1,5 @@
+package Controller;
+
 import java.sql.Date;
 import java.util.ArrayList;
 
@@ -68,10 +70,11 @@ public class Compte {
         this.desCpt = desCpt;
     }
 
-    public  synchronized Operation creatRevenu(int idCat, String desTiers, double montant , Date dateops){
+    public  synchronized Operation creatRevenu(int idCat, String desTiers, double montant ){
 
         Operation res= null;
 
+        Date dateops=MaDate.getSysDate();
             res = new Operation(0,this.idCpt, idCat,desTiers,montant,'r',
                         this.getSolde(),this.getSolde()+montant,dateops);
 
@@ -82,11 +85,12 @@ public class Compte {
 
     }
 
-    public Operation creatDepence(int idCat, String desTiers, double montant , Date dateops){
+    public Operation creatDepence(int idCat, String desTiers, double montant){
 
 
         Operation res=null;
 
+        Date dateops=MaDate.getSysDate();
             res=new Operation(0,this.idCpt, idCat,desTiers,montant,'d',
                     this.getSolde(),this.getSolde()-montant,dateops);
             this.solde-=montant;

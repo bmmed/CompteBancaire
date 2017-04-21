@@ -11,6 +11,8 @@
     <DEPENDENCIES>
       <COMP relation="Model">
         <COMPID name="comptebancaire" mc="Standard.Package" uid="cf47a83e-74bd-4b6b-9bb7-3193f5985cca"/>
+        <COMPID name="cas utilisation" mc="Standard.Package" uid="06bc868a-74b7-4d1e-8b57-b95326dafd95"/>
+        <COMPID name="sequence" mc="Standard.Package" uid="a5e81d5c-1d1a-4cba-815b-db5986b12b9c"/>
       </COMP>
       <COMP relation="DiagramRoot">
         <COMPID name="CompteBancaire" mc="Infrastructure.DiagramSet" uid="a00dca2a-5dcc-4c65-8a5f-681ec7f16359"/>

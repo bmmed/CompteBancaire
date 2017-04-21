@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="sequence" version="4">
+  <OBJECT>
+    <ID name="sequence" mc="Standard.Package" uid="a5e81d5c-1d1a-4cba-815b-db5986b12b9c"/>
+    <PID name="CompteBancaire" mc="Standard.Project" uid="9b771f00-753d-4d18-8c5a-fed6d6431501"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[sequence]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedBehavior">
+        <COMPID name="Interaction" mc="Standard.Interaction" uid="ffaf1a5d-cc97-4cee-b6b8-e0d22ebd010c"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
