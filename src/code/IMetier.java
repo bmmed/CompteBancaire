@@ -1,4 +1,4 @@
-package Controller;
+package code;
 
 import java.sql.Date;
 import java.util.ArrayList;
@@ -42,6 +42,7 @@ public interface IMetier {
 
     public void creatCsvFile(String txt ,String fileDir);
     public void creatPdfFile(String txt ,String fileDir);
+	ArrayList<Operation> getOpsClient(Client clt, char str);
 
 
 

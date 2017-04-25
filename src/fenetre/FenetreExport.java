@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package fenetre;
 
-import Controller.*;
+import code.*;
 
 import java.awt.Component;
 import javax.swing.JFileChooser;

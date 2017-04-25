@@ -1,4 +1,9 @@
-package Controller;
+package code;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -9,13 +14,11 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.Calendar;
-
 /**
  * Created by BMMed on 01/03/2017.
  */
+
+
 public class Metier implements IMetier {
     @Override
     public boolean testClient(String u, String mp) {
@@ -41,10 +44,31 @@ public class Metier implements IMetier {
 
         return res;
     }
+    
+    
+    
+    public void updateOps(Operation o){
+    	Connection cnx = JDBC.getConnection();
+        try {
+            PreparedStatement  stat = cnx.prepareStatement("UPDATE `operation` "
+            		+ "SET `fk_id_cat_ops` = ? "
+            		+ "WHERE `operation`.`id_ops` = ?");
 
+            stat.setInt(1,o.getFkCat());
+            stat.setInt(2,o.getIdOps());
+            stat.executeUpdate();
+            stat.close();
+          
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+    
     @Override
     public Client cnxClient(String u, String mp) {
-        Client res =new Client(0," "," ");
+        Client res =new Client(0,"","");
         Connection cnx = JDBC.getConnection();
         try {
             PreparedStatement  stat = cnx.prepareStatement("SELECT * \n" +
@@ -100,7 +124,7 @@ public class Metier implements IMetier {
             }
         return res;
     }
-
+ 
     @Override
     public void executeEch(Client c) {
 
@@ -136,7 +160,7 @@ public class Metier implements IMetier {
             stat.setDouble(3, ech.getMontant_ech());
             stat.setInt(4, ech.getPeriode_ech());
             stat.setString(5, ech.getDes_ech());
-            stat.setDate(6, ech.getDate_last_ech());
+            stat.setDate(6, (java.sql.Date) ech.getDate_last_ech());
 
             stat.setInt(7, ech.getIdEch());
 
@@ -169,7 +193,7 @@ public class Metier implements IMetier {
                 i.setFkClient(rq.getInt(2));
                 i.setSolde(rq.getInt(3));
                 i.setDesCpt(rq.getString(4));
-                i.setListeOps(getOpsCpt(i));
+                i.setListeOps(getOpsCpt(i,'a'));
                 i.setListeEch(getEchCpt(i));
                 res.add(i);
             }
@@ -248,94 +272,139 @@ public class Metier implements IMetier {
         return res;
     }
 
-    @Override
+    
     public ArrayList<Echeance> getEchClient(Client clt) {
 
         ArrayList<Echeance> res = new ArrayList<Echeance>();
-
-        for (Compte i :clt.getCptClient())
-        {
+        res.removeAll(res);
+        for (Compte i :clt.getCptClient()){
             res.addAll(getEchCpt(i));
         }
 
         return res;
     }
-
-    @Override
-    public ArrayList<Operation> getOpsCpt(Compte c) {
-
-        ArrayList<Operation> res = new ArrayList<Operation>();
-        Operation i ;
-        Connection cnx = JDBC.getConnection();
+    
+    public Date getDateMin (Compte c){
+    	Date d = null ;
+    	Connection cnx = JDBC.getConnection();
         try {
-            PreparedStatement  stat = cnx.prepareStatement("SELECT * \n" +
-                    "FROM  `operation` \n" +
-                    "WHERE  `fk_id_cpt_ops` =  ? ");
+            PreparedStatement  stat = cnx.prepareStatement("SELECT MIN(date_ops) "
+            		+ "FROM `operation` "
+            		+ "WHERE fk_id_cpt_ops= ? ");
 
             stat.setInt(1,c.getIdCpt());
             ResultSet rq = stat.executeQuery();
             while (rq.next()){
-
-                    i=new Operation(0,0,0,"",0,' ',0,0,null);
-                    i.setIdOps(rq.getInt(1));
-                    i.setFkCpt(rq.getInt(2));
-                    i.setFkCat(rq.getInt(3));
-                    i.setDesTiers(rq.getString(4));
-                    i.setMontantOps(rq.getDouble(5));
-                    i.setDateOps(rq.getDate(6));
-                    i.setTypeOps(rq.getString(7).charAt(0));
-                    i.setSoldeAvant(rq.getDouble(8));
-                    i.setSoldeApres(rq.getDouble(9));
-                    res.add(i);
-
+                d=(rq.getDate(1));
             }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return d ;
+    }
+    //new
+    public double getSoldeMax(Compte c ){
+    	double d = 0 ;
+    	Connection cnx = JDBC.getConnection();
+        try {
+            PreparedStatement  stat = cnx.prepareStatement("SELECT MAX(solde_apres) "
+            		+ "FROM operation "
+            		+ "WHERE fk_id_cpt_ops= ? ");
 
+            stat.setInt(1,c.getIdCpt());
+            ResultSet rq = stat.executeQuery();
+            while (rq.next()){
+                d+=(rq.getDouble(1));
+            }	
+            	
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return d ;
+    }
+    public long getDiffDate(Date d1 ,Date d2){
+    	long CONST_DURATION_OF_DAY = 1000l * 60 * 60 * 24;
+    	long diff = Math.abs(d1.getTime() - d2.getTime());
+    	long numberOfDay = (long)diff/CONST_DURATION_OF_DAY;
+    	return numberOfDay ;
+    }
+    public long getDiffCptDate(Compte c){
+    	Date d1 = getDateMax(c) ;
+    	Date d2 = getDateMin(c) ;
+    	return getDiffDate(d1,d2) ;
+    	
+    }
+    public  Date getDateMax (Compte c){
+    	Date d = null ;
+    	Connection cnx = JDBC.getConnection();
+        try {
+            PreparedStatement  stat = cnx.prepareStatement("SELECT MAX(date_ops) "
+            		+ "FROM `operation` "
+            		+ "WHERE fk_id_cpt_ops= ? ");
+
+            stat.setInt(1,c.getIdCpt());
+            ResultSet rq = stat.executeQuery();
+            while (rq.next()){
+                d=(rq.getDate(1));
+            }
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
-
-
-        return res;
+    	return d ;
     }
-
+    
     @Override
-    public ArrayList<Operation> getOpsClient(Client clt) {
+    public ArrayList<Operation> getOpsClient(Client clt,char str) {
 
         ArrayList<Operation> res = new ArrayList<Operation>();
 
-        for (Compte i :clt.getCptClient())
-        {
-            res.addAll(getOpsCpt(i));
+        for (Compte i :getCpt(clt))
+        { 
+        	for (Operation o : getOpsCpt(i,str)){
+        		res.add(o);
+        	}
         }
-
         return res;
     }
-
-    @Override
-    public ArrayList<Operation> getOpsClient(Compte c, char type, Date d1, Date d2, boolean testAffectOps) {
-
+    
+    
+    public ArrayList<Operation> getOpsCpt(Compte c,char str) {
 
         ArrayList<Operation> res = new ArrayList<Operation>();
         Operation i ;
         Connection cnx = JDBC.getConnection();
-
-        String sql="SELECT * \n" + "FROM  `operation` WHERE  `fk_id_cpt_ops` =  ? ";
-
-        if(type!=' ') sql+=" AND `type_ops` = \'"+type+"\'";
-        if(d1!=null || d2 != d2) sql+= " AND  (`date_ops` BETWEEN \'"+d1+"\' AND \'"+d2+"\' )";
-        if(testAffectOps) sql+= " AND `fk_id_cat_ops` = 0 ";
-
-        System.out.println(sql);
-
+        
         try {
-            PreparedStatement  stat = cnx.prepareStatement(sql);
+        	PreparedStatement  stat = null;
+        	if(str=='a'){
+        		 stat = cnx.prepareStatement("SELECT * \n" +
+                    "FROM  `operation` \n" +
+                    "WHERE  `fk_id_cpt_ops` =  ? "
+                    + "ORDER BY `date_ops` ASC " );
 
-            stat.setInt(1,c.getIdCpt());
+        		stat.setInt(1,c.getIdCpt());
+        	}else if(str=='d'){
+        		stat = cnx.prepareStatement("SELECT * \n" +
+                        "FROM  `operation` \n" +
+                        "WHERE  `fk_id_cpt_ops` =  ? AND `type_ops` = 'd' " );
+
+    	            stat.setInt(1,c.getIdCpt());
+            }else if(str=='r'){
+            		stat = cnx.prepareStatement("SELECT * \n" +
+                            "FROM  `operation`, \n" +
+                            "WHERE operation.fk_id_cat_ops=categorie_ops.id_cat  "
+                            + "AND`fk_id_cpt_ops` =  ? "
+                            + "AND `type_ops` = 'r' " );
+
+        	            stat.setInt(1,c.getIdCpt());
+            }
+            
             ResultSet rq = stat.executeQuery();
             while (rq.next()){
-
                 i=new Operation(0,0,0,"",0,' ',0,0,null);
                 i.setIdOps(rq.getInt(1));
                 i.setFkCpt(rq.getInt(2));
@@ -347,8 +416,10 @@ public class Metier implements IMetier {
                 i.setSoldeAvant(rq.getDouble(8));
                 i.setSoldeApres(rq.getDouble(9));
                 res.add(i);
-
+                
             }
+
+            //System.out.println(res.size());
 
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -360,28 +431,71 @@ public class Metier implements IMetier {
         return res;
     }
 
-    @Override
-    public ArrayList<Operation> getOpsClient(Client client, char type, Date d1, Date d2, boolean testAffectOps) {
-       ArrayList<Operation> res = new ArrayList<Operation>();
+    public ArrayList<Operation> getOpsCat(int id ) {
 
-       for (Compte i:client.getCptClient())
-       {
-           res.addAll(this.getOpsClient(i,type,d1,d2,testAffectOps));
-       }
+        ArrayList<Operation> res = new ArrayList<Operation>();
+        Operation i ;
+        Connection cnx = JDBC.getConnection();
+        
+        try {
+        	PreparedStatement  stat = null;
+        	
+        		 stat = cnx.prepareStatement("SELECT *FROM operation,categorie_ops "
+        		 		+ "WHERE operation.fk_id_cat_ops=categorie_ops.id_cat "
+        		 		+ "AND categorie_ops.id_cat= ? " );
+        		 
 
-       return res;
+        		stat.setInt(1,id);
+        	            
+            ResultSet rq = stat.executeQuery();
+            while (rq.next()){
+                i=new Operation(0,0,0,"",0,' ',0,0,null);
+                i.setIdOps(rq.getInt(1));
+                i.setFkCpt(rq.getInt(2));
+                i.setFkCat(rq.getInt(3));
+                i.setDesTiers(rq.getString(4));
+                i.setMontantOps(rq.getDouble(5));
+                i.setDateOps(rq.getDate(6));
+                i.setTypeOps(rq.getString(7).charAt(0));
+                i.setSoldeAvant(rq.getDouble(8));
+                i.setSoldeApres(rq.getDouble(9));
+                res.add(i);
+                
+            }
+
+            //System.out.println(res.size());
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+
+
+        return res;
     }
+  
 
     @Override
     public double getSoldeTotal( Client c) {
         double res =0;
+       for (Compte co : c.getCptClient()){
+    	   res = co.getSolde(); 
+       }
+        return res;
+    }
+    
+    
+    public double getSolde( Compte c) {
+        double res =0;
         Connection cnx = JDBC.getConnection();
         try {
-            PreparedStatement  stat = cnx.prepareStatement("SELECT  SUM(solde) \n" +
-                    "FROM  `compte` \n" +
-                    "WHERE  `fk_id_client_cpt` =  ? ");
+            PreparedStatement  stat = cnx.prepareStatement("SELECT  SUM(solde_apres) FROM  operation "
+            		+ "WHERE date_ops = (SELECT MAX(date_ops) "
+            		+ "FROM operation "
+            		+ "	WHERE fk_id_cpt_ops = ? )");
 
-            stat.setInt(1,c.getIdClient());
+            stat.setInt(1,c.getIdCpt());
             ResultSet rq = stat.executeQuery();
             while (rq.next()){
                 res=(rq.getDouble(1));
@@ -457,32 +571,10 @@ public class Metier implements IMetier {
         return res;
     }
 
-    @Override
-    public double getSoldeTotalCpt(Compte c) {
-        double res =0;
-        Connection cnx = JDBC.getConnection();
-        try {
-            PreparedStatement  stat = cnx.prepareStatement("SELECT  solde \n" +
-                    "FROM  `compte` \n" +
-                    "WHERE  `id_cpt` =  ? ");
-
-            stat.setInt(1,c.getIdCpt());
-            ResultSet rq = stat.executeQuery();
-            while (rq.next()){
-                res=(rq.getDouble(1));
-            }
-
-
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-        return res;
-    }
+    
 
     @Override
-    public double getDepenceCpt(Compte c) {
+    public double getDepenceCpt(Compte c ) {
         double res =0;
         Connection cnx = JDBC.getConnection();
         PreparedStatement  stat;
@@ -545,6 +637,8 @@ public class Metier implements IMetier {
             stat.executeUpdate();
             stat.close();
 
+
+
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -595,7 +689,8 @@ public class Metier implements IMetier {
             stat.setDouble(3, ech.getMontant_ech());
             stat.setInt(4, ech.getPeriode_ech());
             stat.setString(5, ech.getDes_ech());
-            stat.setDate(6, ech.getDate_last_ech());
+            stat.setDate(6, (java.sql.Date) ech.getDate_last_ech());
+
 
             stat.executeUpdate();
             stat.close();
@@ -609,6 +704,7 @@ public class Metier implements IMetier {
 
     }
 
+   
 
     @Override
     public void upDateCpt(Compte c) {
@@ -626,12 +722,19 @@ public class Metier implements IMetier {
 
         } catch (SQLException e) {
             // TODO Auto-generated catch block
-            e.printStackTrace();
+             e.printStackTrace();
         }
 
     }
-    @Override
-    public void creatCsvFile(String txt, String fileDir) {
+
+	/*@Override
+	public void executeEch(Client cl) {
+		// TODO Auto-generated method stub
+		
+	}*/
+
+	
+	public void creatCsvFile(String txt, String fileDir) {
 
         try {
             FileWriter writer = new FileWriter(fileDir);
@@ -657,4 +760,46 @@ public class Metier implements IMetier {
             e.printStackTrace();
         }
     }
+
+
+//*******************************************************//
+	@Override
+	public ArrayList<Operation> getOpsCpt(Compte c) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public ArrayList<Operation> getOpsClient(Client clt) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public ArrayList<Operation> getOpsClient(Compte c, char type, java.sql.Date d1, java.sql.Date d2,
+			boolean testAffectOps) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public ArrayList<Operation> getOpsClient(Client client, char type, java.sql.Date d1, java.sql.Date d2,
+			boolean testAffectOps) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public double getSoldeTotalCpt(Compte c) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

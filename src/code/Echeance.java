@@ -1,6 +1,6 @@
-package Controller;
+package code;
 
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * Created by BMMed on 02/03/2017.
