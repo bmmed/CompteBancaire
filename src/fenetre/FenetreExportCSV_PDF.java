@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package fenetre;
 
 import Controller.*;
 
@@ -13,7 +13,7 @@ import javax.swing.JFileChooser;
 /**
  * @author BMMed
  */
-public class FenetreExport extends javax.swing.JFrame {
+public class FenetreExportCSV_PDF extends javax.swing.JFrame {
 
     String DirPath = "";
     String FileName = "";
@@ -21,7 +21,7 @@ public class FenetreExport extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
-    public FenetreExport() {
+    public FenetreExportCSV_PDF() {
         initComponents();
     }
 
@@ -179,13 +179,13 @@ public class FenetreExport extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FenetreExport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FenetreExportCSV_PDF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FenetreExport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FenetreExportCSV_PDF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FenetreExport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FenetreExportCSV_PDF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FenetreExport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FenetreExportCSV_PDF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -193,7 +193,7 @@ public class FenetreExport extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FenetreExport().setVisible(true);
+                new FenetreExportCSV_PDF().setVisible(true);
             }
         });
 

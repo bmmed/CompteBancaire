@@ -1,6 +1,5 @@
 package fenetre;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.util.ArrayList;
 
@@ -15,7 +14,7 @@ import Controller.*;
 import javax.swing.JLabel;
 import java.awt.Font;
 
-public class FenetreEch extends JFrame {
+public class FenetreEcheance extends JFrame {
 
 	private JPanel contentPane;
 	private EchModel model ; 
@@ -30,7 +29,7 @@ public class FenetreEch extends JFrame {
 			public void run() {
 				try {
 					
-					FenetreEch frame = new FenetreEch(ops);
+					FenetreEcheance frame = new FenetreEcheance(ops);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,7 +41,7 @@ public class FenetreEch extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public FenetreEch(ArrayList<Echeance> Ech) {
+	public FenetreEcheance(ArrayList<Echeance> Ech) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 774, 599);
 		contentPane = new JPanel();

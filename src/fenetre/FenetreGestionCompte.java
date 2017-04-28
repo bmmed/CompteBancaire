@@ -22,7 +22,7 @@ import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 
-public class GestionCompte extends JFrame {
+public class FenetreGestionCompte extends JFrame {
 	
 	private OpsModel model ; 
 	private JPanel contentPane;
@@ -47,7 +47,7 @@ public class GestionCompte extends JFrame {
 
 			public void run() {
 				try {
-					GestionCompte frame = new GestionCompte(c1);
+					FenetreGestionCompte frame = new FenetreGestionCompte(c1);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -59,7 +59,7 @@ public class GestionCompte extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public GestionCompte(Client c) {
+	public FenetreGestionCompte(Client c) {
 		
 		c1= c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -165,7 +165,7 @@ public class GestionCompte extends JFrame {
 			        btnAffichageGraph.addActionListener(new ActionListener() {
 			        	public void actionPerformed(ActionEvent arg0) {
 			        		
-			        		FStat fs = new FStat(statist);
+			        		FenetreDiagramme fs = new FenetreDiagramme(statist);
 			        	fs.setVisible(true);
 			        	}
 			        });

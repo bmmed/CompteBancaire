@@ -13,14 +13,14 @@ import Controller.*;
  *
  * @author BMMed
  */
-public class FenetrePrincipal extends javax.swing.JFrame {
+public class FenetreMenuPrincipal extends javax.swing.JFrame {
 
     /**
      * Creates new form FenetrePrincipal
      */
 	public static Client c1;
 	ArrayList<Echeance> Ec=new  ArrayList<Echeance>();
-    public FenetrePrincipal(Client c1) {
+    public FenetreMenuPrincipal(Client c1) {
         initComponents();
         this.c1=c1 ;
     }
@@ -46,7 +46,7 @@ public class FenetrePrincipal extends javax.swing.JFrame {
         jButton1.setText("Gestion des comptes");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-            	GestionCompte Af = new GestionCompte(c1) ; 
+            	FenetreGestionCompte Af = new FenetreGestionCompte(c1) ;
 				Af.setVisible(true) ; 
             }
         });
@@ -63,7 +63,7 @@ public class FenetrePrincipal extends javax.swing.JFrame {
         jButton3.setText("Exporter Vos Comptes");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FenetreExport fenExp=new FenetreExport();
+                FenetreExportCSV_PDF fenExp=new FenetreExportCSV_PDF();
                 fenExp.setVisible(true);            }
         });
 
@@ -81,7 +81,7 @@ public class FenetrePrincipal extends javax.swing.JFrame {
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
             	Ec.addAll(m.getEchClient(c1));
-            	FenetreEch Ech= new FenetreEch(Ec);
+            	FenetreEcheance Ech= new FenetreEcheance(Ec);
               	Ech.setVisible(true);
             }
         });
@@ -160,20 +160,20 @@ public class FenetrePrincipal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FenetrePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FenetreMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FenetrePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FenetreMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FenetrePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FenetreMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FenetrePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FenetreMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FenetrePrincipal(c1).setVisible(true);
+                new FenetreMenuPrincipal(c1).setVisible(true);
             }
         });
     }

@@ -8,17 +8,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Controller.*;
-import javax.swing.BoxLayout;
-import java.awt.FlowLayout;
-import java.awt.BorderLayout;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import javax.swing.JTextField;
 
-
-public class FStat  extends JFrame{
+public class FenetreDiagramme extends JFrame{
 
 	private JPanel contentPane;
 public static void main (String args[]){
@@ -26,7 +17,7 @@ public static void main (String args[]){
 	EventQueue.invokeLater(new Runnable() {
 		public void run() {
 			try {
-				FStat frame = new FStat(ops);
+				FenetreDiagramme frame = new FenetreDiagramme(ops);
 				frame.setVisible(true);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -36,7 +27,7 @@ public static void main (String args[]){
 
 	}
 	 static ArrayList<Graph> ops ;
-	public  FStat(ArrayList<Graph> ops) {
+	public FenetreDiagramme(ArrayList<Graph> ops) {
 		this.ops=ops ;
 		
 		pane panel = new pane(ops);

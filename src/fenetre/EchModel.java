@@ -7,8 +7,9 @@ import javax.swing.table.AbstractTableModel;
 import Controller.*;
 
 	public class EchModel extends AbstractTableModel  {
-		Metier m =  new Metier() ;
-		Client c1 = m.cnxClient("client 01","0000");
+
+
+
 		ArrayList<String[]> tablevalues ;
 		ArrayList<Echeance> ops = new ArrayList<Echeance>();
 		private final String[] entetes = { "idECH", "fkCpt", "fkCat", "montantEch", "periode_ech", "dessEch", "dateLastEch" };	
